@@ -1,6 +1,6 @@
 package tree;
 
-import queue.Queue;
+import queue.Q_using_LinkedList;
 
 public class Tree<T> {
 
@@ -28,7 +28,7 @@ public class Tree<T> {
 			this.root = new TreeNode<>(data);
 			return this.root;
 		} else {
-			Queue<T> que = new Queue<>();
+			Q_using_LinkedList<T> que = new Q_using_LinkedList<>();
 			que.enqueue((T) getRoot());
 			while (!que.isEmpty()) {
 				TreeNode<T> currNode = (TreeNode<T>) que.dequeue();
@@ -51,7 +51,7 @@ public class Tree<T> {
 	}
 
 	public void printTree() throws Exception {
-		Queue que = new Queue<>();
+		Q_using_LinkedList que = new Q_using_LinkedList<>();
 		TreeNode<T> currTreeNode = getRoot();
 		while (currTreeNode != null) {
 			System.out.println("  " + currTreeNode.getData());
