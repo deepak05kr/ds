@@ -107,7 +107,7 @@ public class Q_using_Array<T> implements Queue {
 	@Override
 	public boolean isFull() {
 
-		return (this.size == this.capacity);
+		return (this.size == this.capacity-1);
 	}
 
 }
