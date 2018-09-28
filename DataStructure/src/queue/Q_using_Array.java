@@ -11,13 +11,13 @@ public class Q_using_Array<T> implements Queue {
 		this.capacity = capacity;
 	}
 
-	public Q_using_Array(Object object) {
+	public Q_using_Array(T[] arr) {
 		super();
 		this.size = -1;
 		this.capacity = 10;
 		this.front = -1;
 		this.rear = -1;
-		this.arr = (T[]) object;
+		this.arr =  arr;
 	}
 
 	public int getFront() {
