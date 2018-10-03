@@ -89,5 +89,17 @@ public class Person implements Comparable<Person> {
 			return o1.getName().compareTo(o2.getName());
 		}
 	};
-
+	public static Comparator<Person> idAgeSalarycomparator = new Comparator<Person>() {
+		@Override
+		public int compare(Person o1, Person o2) {
+			int flag = o1.id - o2.id;
+			if (flag == 0) {
+				flag = o1.age - o2.age;
+				if (flag == 0) {
+					flag = (int) (o1.salary - o2.salary);
+				}
+			}
+			return flag;
+		}
+	};
 }

@@ -166,6 +166,44 @@ public class ObjectSortingTest {
 			assertTrue(sortedNames.get(index++).equals(p.getName()));
 		}
 	}
+	@Test
+	public void idAgeSalaryComparatorTest_ArraySorting() {
+		Person[] persons = new Person[3];
+		Person person1 = new Person(1, "Pankaj", 36, 50000);
+		Person person2 = new Person(1, "Lisa", 36, 600000);
+		Person person3 = new Person(1, "Mikey", 25, 9000);
+		persons[0] = person1;
+		persons[1] = person2;
+		persons[2] = person3;
+
+		List<Integer> sortedId = new ArrayList();
+		for (Person p : persons) {
+			sortedId.add((int) p.getId());
+		}
+		Collections.sort(sortedId);
+
+		List<Integer> sortedAge = new ArrayList();
+		for (Person p : persons) {
+			sortedAge.add((int) p.getAge());
+		}
+		Collections.sort(sortedAge);
+
+		List<Integer> sortedSalaries = new ArrayList();
+		for (Person p : persons) {
+			sortedSalaries.add((int) p.getSalary());
+		}
+		Collections.sort(sortedSalaries);
+
+		Arrays.sort(persons, Person.idAgeSalarycomparator);
+
+		int index = 0;
+
+		for (Person p : persons) {
+			assertTrue(sortedId.get(index) - p.getId() == 0);
+			assertTrue(sortedAge.get(index) - p.getAge() == 0);
+			assertTrue(sortedSalaries.get(index++) - p.getSalary() == 0);
+		}
+	}
 
 	private List<Person> getPersonList() {
 		Person person1 = new Person(1, "Pankaj", 32, 50000);
