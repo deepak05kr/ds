@@ -12,4 +12,8 @@ public class Message {
 		return this.msg;
 	}
 
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
 }
