@@ -1,15 +1,15 @@
 package tree;
 
-public class TreeNode<T> {
-	private T data;
-	private TreeNode<T> left;
-	private TreeNode<T> right;
+public class TreeNode {
+	private String data;
+	private TreeNode left;
+	private TreeNode right;
 
-	public T getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(T data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 
@@ -29,35 +29,17 @@ public class TreeNode<T> {
 		this.right = right;
 	}
 
-	public TreeNode(T data, TreeNode left, TreeNode right) {
+	public TreeNode(String data, TreeNode left, TreeNode right) {
 		super();
 		this.data = data;
 		this.left = left;
 		this.right = right;
 	}
 
-	public TreeNode() {
-		super();
-	}
-
-	public TreeNode(T data) {
-		super();
+	public TreeNode(String data) {
 		this.data = data;
 		this.left = null;
 		this.right = null;
 	}
 
-	public void printTreeNode() {
-		System.out.println("data = " + this.data + " ");
-		if (this.getLeft() != null) {
-			System.out.println("left = " + this.getLeft().getData());
-		} else {
-			System.out.println("left = " + this.getLeft());
-		}
-		if (this.getRight() != null) {
-			System.out.println("right = " + this.getRight().getData());
-		} else {
-			System.out.println("right = " + this.getRight());
-		}
-	}
 }

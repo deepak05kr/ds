@@ -1,74 +1,74 @@
 package tree;
 
+import java.util.Queue;
+
 import queue.Q_using_LinkedList;
 
-public class Tree<T> {
+public class Tree {
+	private TreeNode root;
 
-	private TreeNode<T> root = null;
-
-	public TreeNode<T> getRoot() {
+	public TreeNode getRoot() {
 		return root;
 	}
 
-	public void setRoot(TreeNode<T> root) {
+	public void setRoot(TreeNode root) {
 		this.root = root;
 	}
 
-	public Tree(TreeNode<T> root) {
+	public Tree(TreeNode root) {
 		super();
 		this.root = root;
 	}
 
-	public Tree() {
-		super();
-	}
-
-	public TreeNode<T> add(T data) throws Exception {
-		if (this.root == null) {
-			this.root = new TreeNode<>(data);
-			return this.root;
-		} else {
-			Q_using_LinkedList<T> que = new Q_using_LinkedList<>();
-			que.enqueue((T) getRoot());
-			while (!que.isEmpty()) {
-				TreeNode<T> currNode = (TreeNode<T>) que.dequeue();
-				if (currNode.getLeft() != null) {
-					que.enqueue((T) currNode.getLeft());
-				} else {
-					currNode.setLeft(new TreeNode<>(data));
-					break;
-				}
-				if (currNode.getRight() != null) {
-					que.enqueue((T) currNode.getRight());
-				} else {
-					currNode.setRight(new TreeNode<>(data));
-					break;
-				}
-			}
+	public void InorderTraversal(TreeNode treeNode) {
+		if (treeNode == null) {
+			return;
 		}
-		this.root.printTreeNode();
-		return getRoot();
+		System.out.println(treeNode.getData());
+		InorderTraversal(treeNode.getLeft());
+		InorderTraversal(treeNode.getRight());
 	}
 
-	public void printTree() throws Exception {
-		Q_using_LinkedList que = new Q_using_LinkedList<>();
-		TreeNode<T> currTreeNode = getRoot();
-		while (currTreeNode != null) {
-			System.out.println("  " + currTreeNode.getData());
-			System.out.println("/ \\");
-			if (currTreeNode.getLeft() == null) {
-				System.out.println(currTreeNode.getLeft());
-			} else {
-				que.enqueue(currTreeNode.getLeft());
-				System.out.println(currTreeNode.getLeft().getData());
+	public void PreOrderTraversal(TreeNode treeNode) {
+		if (treeNode == null) {
+			return;
+		}
+
+		PreOrderTraversal(treeNode.getLeft());
+		System.out.println(treeNode.getData());
+		PreOrderTraversal(treeNode.getRight());
+	}
+
+	public void PostOrderTraversal(TreeNode treeNode) {
+		if (treeNode == null) {
+			return;
+		}
+		PreOrderTraversal(treeNode.getLeft());
+		PreOrderTraversal(treeNode.getRight());
+		System.out.println(treeNode.getData());
+	}
+
+	public void add(String data) throws Exception {
+		TreeNode newNode = new TreeNode(data);
+		if (this.root == null) {
+			this.setRoot(newNode);
+		} else {
+			Q_using_LinkedList<TreeNode> queue = new Q_using_LinkedList<>();
+			queue.enqueue(root);
+			while (!queue.isEmpty()) {
+				TreeNode dequeuedNode = queue.dequeue();
+				if (dequeuedNode.getLeft() != null) {
+					queue.enqueue(dequeuedNode.getLeft());
+				} else {
+					dequeuedNode.setLeft(newNode);
+					break;
+				}
+				if (dequeuedNode.getRight() != null) {
+					queue.enqueue(dequeuedNode.getRight());
+				} else {
+					dequeuedNode.setRight(newNode);
+				}
 			}
-			if (currTreeNode.getRight() == null) {
-				System.out.println(currTreeNode.getRight());
-			} else {
-				que.enqueue(currTreeNode.getRight());
-				System.out.println(currTreeNode.getRight().getData());
-			}
-			currTreeNode = (TreeNode<T>) que.dequeue();
 		}
 	}
 }
