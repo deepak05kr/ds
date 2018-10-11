@@ -45,4 +45,37 @@ public class SocialNetworkConnectivity {
 		}
 	}
 
+	public void printArray() {
+		System.out.println("Printing index");
+		for (int i = 0; i < id.length; i++) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+		System.out.println("Printing id array");
+		for (int i = 0; i < id.length; i++) {
+			System.out.print(id[i] + " ");
+		}
+		System.out.println();
+		System.out.println("Printing sz array");
+		for (int i = 0; i < id.length; i++) {
+			System.out.print(sz[i] + " ");
+		}
+	}
+
+	public static void main(String args[]) {
+		int size = 10;
+		SocialNetworkConnectivity socialNetwork = new SocialNetworkConnectivity(size);
+		socialNetwork.makeFriends(4, 5);
+		socialNetwork.makeFriends(3, 4);
+		socialNetwork.makeFriends(2, 3);
+		socialNetwork.makeFriends(1, 2);
+		socialNetwork.makeFriends(0, 1);
+
+		socialNetwork.makeFriends(8, 9);
+		socialNetwork.makeFriends(7, 8);
+		socialNetwork.makeFriends(6, 7);
+		
+		
+		socialNetwork.printArray();
+	}
 }
