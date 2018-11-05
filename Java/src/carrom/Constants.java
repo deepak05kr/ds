@@ -1,4 +1,4 @@
-package game;
+package carrom;
 
 public class Constants {
 	public final static int ZERO = 0;
@@ -13,5 +13,7 @@ public class Constants {
 	public static final String DFUNCTCOIN = "dfunctcoin";
 	public static final String STRIKERSTRIKE = "strikerstrike";
 	public static final String NONE = "NONE";
-	public static final boolean SHOW_STATISTICS = true;
+	public static final boolean SHOW_STATISTICS = false;
+	public static final int MAX_BLACK_COIN_COUNT = 9;
+	public static final int MAX_RED_COIN_COUNT = 1;
 }

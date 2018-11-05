@@ -1,7 +1,7 @@
-package game;
+package carrom;
 
-public class ActionDetails {
-	private String actionPerformed;
+public class EventDetails {
+	private String eventPerformed;
 	private int playerId;
 	private int points;
 	private int faulcount;
@@ -9,13 +9,13 @@ public class ActionDetails {
 	private int blackCointCount;
 	private int redCoinCount;
 
-	public ActionDetails() {
+	public EventDetails() {
 
 	}
 
-	public ActionDetails(String actionPerformed, Player player, Carrom carrom) {
+	public EventDetails(String actionPerformed, Player player, CarromBoard carrom) {
 		super();
-		this.actionPerformed = actionPerformed;
+		this.eventPerformed = actionPerformed;
 		this.playerId = player.getId();
 		this.points = player.getPoint();
 		this.faulcount = player.getFaulCount();
@@ -26,7 +26,7 @@ public class ActionDetails {
 
 	@Override
 	public String toString() {
-		return "ActionDetails [actionPerformed=" + actionPerformed + ", playerId=" + playerId + ", points=" + points
+		return "EventDetails [" + eventPerformed + ", playerId=" + playerId + ", points=" + points
 				+ ", faulcount=" + faulcount + ", missedPocketCount=" + missedPocketCount + ", blackCointCount="
 				+ blackCointCount + ", redCoinCount=" + redCoinCount + "]";
 	}
