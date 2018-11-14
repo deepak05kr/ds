@@ -1,8 +1,7 @@
-package customTree;
+package dynamicProgramming;
 
 import org.junit.Test;
 
-import dynamicProgramming.LongestCommonSubsequence;
 import junit.framework.Assert;
 
 public class LongestCommonSubsequenceTest {
