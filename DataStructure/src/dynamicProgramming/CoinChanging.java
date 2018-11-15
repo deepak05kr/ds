@@ -22,7 +22,7 @@ public class CoinChanging {
 					arr[i][j] = arr[i - 1][j];
 				} else {
 					if (i > 0) {
-						arr[i][j] = Math.min(arr[i - 1][j], arr[i - 1][j % input[i]] + j / input[i]);
+						arr[i][j] = Math.min(arr[i - 1][j], arr[i][j % input[i]] + j / input[i]);
 					} else {
 						arr[i][j] = j / input[i];
 					}
