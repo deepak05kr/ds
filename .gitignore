@@ -2,3 +2,5 @@
 *.class
 */bin/*
 DataStructure/bin/
+**/.DS_Store
+**/.idea/
