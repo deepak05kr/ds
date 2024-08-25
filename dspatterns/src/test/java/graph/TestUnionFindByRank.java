@@ -3,11 +3,12 @@ package graph;
 import org.junit.Assert;
 import org.junit.Test;
 import unionfind.UnionFind;
+import unionfind.UnionFindByRank;
 
-public class TestUnionFind {
+public class TestUnionFindByRank {
     @Test
     public void testUnionFind() {
-        UnionFind uf = new UnionFind(10);
+        UnionFindByRank uf = new UnionFindByRank(10);
         // 1-2-5-6-7 3-8-9 4
         int[][] union = {{1, 2}, {2, 5}, {5, 6}, {6, 7}, {3, 8}, {8, 9}};
         for (int[] input : union) {
